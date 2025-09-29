@@ -2,7 +2,7 @@ import pandas as pd
 import argparse
 import os
 import matplotlib.pyplot as plt
-from typing import Optional
+
 
 def load_data(file_path: str) -> pd.DataFrame:
     return pd.read_csv(file_path)
@@ -94,12 +94,7 @@ def plot_bar(df: pd.DataFrame, country_name: str, output_dir: str, filename: str
     print(f"Saved bar chart for {country_name}: {out_path}")
 
 def plot_combined(ghana_df: pd.DataFrame, coast_df: pd.DataFrame, output_dir: str, filename: str):
-    """
-    Create a 2x2 grid of plots:
-    [ Ghana scatter | Côte d'Ivoire scatter ]
-    [ Ghana bar     | Côte d'Ivoire bar    ]
-    Save as PDF.
-    """
+    
     os.makedirs(output_dir, exist_ok=True)
 
     fig, axs = plt.subplots(2, 2, figsize=(14, 10))
